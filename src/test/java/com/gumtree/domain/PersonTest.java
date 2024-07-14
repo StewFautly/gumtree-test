@@ -31,4 +31,19 @@ class PersonTest {
         assertThat(gemma.is(FEMALE)).isTrue();
     }
 
+    @Test
+    void howManyDaysOlderThan() {
+        assertThat(bill.daysOlderThan(gemma)).isEqualTo(5362);
+    }
+
+    @Test
+    void howManyDaysOlderWhenSameBirthday() {
+        assertThat(bill.daysOlderThan(bill)).isEqualTo(0);
+    }
+
+    @Test
+    void howManyDaysOlderWhenYounger() {
+        assertThat(gemma.daysOlderThan(bill)).isEqualTo(0);
+    }
+
 }

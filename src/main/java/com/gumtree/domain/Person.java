@@ -24,4 +24,11 @@ public record Person (String name, Gender gender, LocalDate dateOfBirth) {
         return this.gender.equals(gender);
     }
 
+    public long daysOlderThan(Person other) {
+        // Technically someone younger is still 0 days older
+        return dateOfBirth.isBefore(other.dateOfBirth) ?
+                dateOfBirth.datesUntil(other.dateOfBirth).count() :
+                0;
+    }
+
 }
