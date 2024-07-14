@@ -24,11 +24,11 @@ public class CsvPeopleRepositoryTest {
     @Test
     void loadPeopleFromFile() {
         var expected = new People(List.of(
-                new Person("Bill McKnight", "Male"),
-                new Person("Paul Robinson", "Male"),
-                new Person("Gemma Lane", "Female"),
-                new Person("Sarah Stone", "Female"),
-                new Person("Wes Jackson", "Male")
+                new Person("Bill McKnight", "Male", "16/03/77"),
+                new Person("Paul Robinson", "Male", "15/01/85"),
+                new Person("Gemma Lane", "Female", "20/11/91"),
+                new Person("Sarah Stone", "Female", "20/09/80"),
+                new Person("Wes Jackson", "Male", "14/08/74")
         ));
 
         assertThat(peopleRepository.getPeople())

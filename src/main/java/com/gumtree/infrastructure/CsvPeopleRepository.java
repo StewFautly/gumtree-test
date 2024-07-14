@@ -21,6 +21,7 @@ public class CsvPeopleRepository implements PeopleRepository {
                 .map(line -> asList(line.split(",")))
                 .map(p -> new Person(
                         p.getFirst().trim(),
+                        p.get(1).trim(),
                         p.getLast().trim()
                 ))
                 .toList()

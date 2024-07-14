@@ -2,18 +2,20 @@ package com.gumtree.domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+
 import static com.gumtree.domain.Gender.FEMALE;
 import static com.gumtree.domain.Gender.MALE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class PersonTest {
 
-    private final Person bill = new Person("Bill McKnight", "Male");
-    private final Person gemma = new Person("Gemma Lane", "Female");
+    private final Person bill = new Person("Bill McKnight", "Male", "16/03/77");
+    private final Person gemma = new Person("Gemma Lane", "Female", "20/11/91");
 
     @Test
     void equals() {
-        var expected = new Person("Bill McKnight", MALE);
+        var expected = new Person("Bill McKnight", MALE, LocalDate.of(1977, 3, 16));
         assertThat(bill)
                 .usingRecursiveComparison()
                 .isEqualTo(expected);

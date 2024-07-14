@@ -11,9 +11,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PeopleTest {
 
     private final People people = new People(List.of(
-            new Person("Bill McKnight", "Male"),
-            new Person("Gemma Lane", "Female"),
-            new Person("Sarah Stone", "Female")
+            new Person("Bill McKnight", "Male", "16/03/77"),
+            new Person("Gemma Lane", "Female", "20/11/91"),
+            new Person("Sarah Stone", "Female", "20/09/80")
     ));
 
     @Test
