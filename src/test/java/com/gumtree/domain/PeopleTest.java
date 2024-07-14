@@ -28,4 +28,28 @@ class PeopleTest {
                 .hasSize(2);
     }
 
+    @Test
+    void eldest() {
+        assertThat(people.eldest().stream().findFirst().map(Person::name))
+                .hasValue("Bill McKnight");
+    }
+
+    @Test
+    void eldestMultipleSameBirthday() {
+        final People people = new People(List.of(
+                new Person("Bill McKnight", "Male", "16/03/77"),
+                new Person("Gemma Lane", "Female", "20/11/91"),
+                new Person("Sarah Stone", "Female", "16/03/77")
+        ));
+
+        assertThat(people.eldest().stream().map(Person::name))
+                .containsExactlyInAnyOrder("Bill McKnight", "Sarah Stone");
+    }
+
+    @Test
+    void noEldest() {
+        assertThat(new People(List.of()).eldest())
+                .hasSize(0);
+    }
+
 }
