@@ -1,5 +1,7 @@
 package com.gumtree.domain;
 
+import com.gumtree.domain.exception.PersonNotFoundException;
+
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
@@ -27,6 +29,13 @@ public record People(List<Person> people) {
                         .filter(person -> birthday.equals(person.dateOfBirth()))
                         .toList()
         ).orElse(List.of());
+    }
+
+    public Person getPerson(String name) {
+        return people.stream()
+                .filter(person -> name.equals(person.name()))
+                .findFirst()
+                .orElseThrow(PersonNotFoundException::new);
     }
 
 }

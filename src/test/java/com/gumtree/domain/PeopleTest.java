@@ -1,5 +1,6 @@
 package com.gumtree.domain;
 
+import com.gumtree.domain.exception.PersonNotFoundException;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 import static com.gumtree.domain.Gender.FEMALE;
 import static com.gumtree.domain.Gender.MALE;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class PeopleTest {
 
@@ -50,6 +52,20 @@ class PeopleTest {
     void noEldest() {
         assertThat(new People(List.of()).eldest())
                 .hasSize(0);
+    }
+
+    @Test
+    void getPerson() {
+        var expected = new Person("Gemma Lane", "Female", "20/11/91");
+
+        assertThat(people.getPerson("Gemma Lane"))
+                .isEqualTo(expected);
+    }
+
+    @Test
+    void getMissingPerson() {
+        assertThatThrownBy(() -> people.getPerson("Wes Jackson"))
+                .isInstanceOf(PersonNotFoundException.class);
     }
 
 }
