@@ -47,4 +47,9 @@ public class PeopleQuestionsTest {
         assertThat(peopleQuestions.howMany(FEMALE)).isEqualTo(2);
     }
 
+    @Test
+    void eldest() {
+        assertThat(peopleQuestions.eldest()).isEqualTo("Bill McKnight");
+    }
+
 }

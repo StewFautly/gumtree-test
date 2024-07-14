@@ -17,6 +17,9 @@ public class Application {
 
         // Question 1
         System.out.println("There are " + peopleQuestions.howMany(MALE) + " males");
+
+        // Question 2
+        System.out.println("The eldest person is " + peopleQuestions.eldest());
     }
 
 }
