@@ -29,5 +29,4 @@ class PersonTest {
         assertThat(gemma.is(FEMALE)).isTrue();
     }
 
-
 }
