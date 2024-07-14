@@ -52,4 +52,10 @@ public class PeopleQuestionsTest {
         assertThat(peopleQuestions.eldest()).isEqualTo("Bill McKnight");
     }
 
+    @Test
+    void howManyDaysOlderBillThanGemma() {
+        assertThat(peopleQuestions.howManyDaysOlder("Bill McKnight", "Gemma Lane"))
+                .isEqualTo(5362);
+    }
+
 }

@@ -20,6 +20,11 @@ public class Application {
 
         // Question 2
         System.out.println("The eldest person is " + peopleQuestions.eldest());
+
+        // Question 3
+        System.out.println("Bill is " +
+                peopleQuestions.howManyDaysOlder("Bill McKnight", "Paul Robinson") +
+                " days older than Paul");
     }
 
 }
